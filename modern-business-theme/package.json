@@ -1,0 +1,116 @@
+{
+  "name": "modern-business-theme",
+  "version": "1.0.0",
+  "description": "A modern, responsive Shopify theme designed for small businesses with 2025 trending features",
+  "author": "AI Assistant",
+  "license": "MIT",
+  "keywords": [
+    "shopify",
+    "theme",
+    "business",
+    "ecommerce",
+    "responsive",
+    "modern",
+    "2025"
+  ],
+  "scripts": {
+    "dev": "shopify theme dev",
+    "deploy": "shopify theme push",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "postcss assets/base.css -o assets/base.min.css",
+    "build:js": "terser assets/theme.js -o assets/theme.min.js --compress --mangle",
+    "lint": "npm run lint:css && npm run lint:js && npm run lint:liquid",
+    "lint:css": "stylelint assets/*.css",
+    "lint:js": "eslint assets/*.js",
+    "lint:liquid": "theme-check .",
+    "format": "prettier --write \"**/*.{js,css,json,md}\"",
+    "test": "npm run lint",
+    "watch": "npm run watch:css & npm run watch:js",
+    "watch:css": "postcss assets/base.css -o assets/base.min.css --watch",
+    "watch:js": "terser assets/theme.js -o assets/theme.min.js --compress --mangle --watch",
+    "optimize": "npm run optimize:images && npm run build",
+    "optimize:images": "imagemin assets/images/* --out-dir=assets/images/optimized"
+  },
+  "devDependencies": {
+    "@shopify/cli": "^3.50.0",
+    "@shopify/theme": "^3.50.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.54.0",
+    "eslint-config-standard": "^17.1.0",
+    "imagemin": "^8.0.1",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-mozjpeg": "^10.0.0",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.1",
+    "prettier": "^3.1.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "terser": "^5.24.0",
+    "theme-check": "^1.15.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "postcss-nested": {},
+      "autoprefixer": {},
+      "cssnano": {
+        "preset": "default"
+      }
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "tabWidth": 2,
+    "printWidth": 80,
+    "trailingComma": "es5"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "warn"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "property-no-unknown": [
+        true,
+        {
+          "ignoreProperties": [
+            "composes"
+          ]
+        }
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/modern-business-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/modern-business-theme/issues"
+  },
+  "homepage": "https://github.com/your-username/modern-business-theme#readme"
+}
